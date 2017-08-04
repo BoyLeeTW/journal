@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class JourneyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var journeyListTableView: UITableView!
 
     override func viewDidLoad() {
