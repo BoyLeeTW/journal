@@ -10,6 +10,8 @@ import UIKit
 
 class EditJournalViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
+    var selectedRow = -1
+
     @IBOutlet private(set) weak var crossButton: UIButton!
 
     @IBOutlet private(set) weak var journeyImageView: UIImageView!
@@ -25,9 +27,11 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
     let imagePicker = UIImagePickerController()
 
     let journalManager = JournalManager()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        checkIsAddOrUpdate()
 
         setUpSaveButton()
 
@@ -40,6 +44,30 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
     override var preferredStatusBarStyle: UIStatusBarStyle {
 
         return .lightContent
+
+    }
+
+    func checkIsAddOrUpdate() {
+
+        if selectedRow > -1 {
+
+            let journey = journalManager.fetchData()
+
+            journeyTitleTextField.text = journey[selectedRow].title
+
+            journeyContentTextView.text = journey[selectedRow].content
+
+            // swiftlint:disable force_cast
+            let photoData = journey[selectedRow].photo as! Data
+            // swiftlint:enable force_cast
+
+            journeyImageView.image = UIImage(data: photoData)
+
+            journeyImageView.contentMode = .scaleAspectFill
+
+            journeyImageReminderLabel.isHidden = true
+
+        }
 
     }
 
@@ -58,6 +86,17 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
         button.layer.shadowRadius = 5
 
         button.addTarget(self, action: #selector(handleSaveButton), for: .touchUpInside)
+
+        if selectedRow == -1 {
+
+            button.setTitle("Save", for: .normal)
+
+        } else {
+
+            button.setTitle("Update", for: .normal)
+
+        }
+
     }
 
     func handleSaveButton() {

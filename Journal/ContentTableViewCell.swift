@@ -10,6 +10,9 @@ import UIKit
 import CoreData
 
 class ContentTableViewCell: UITableViewCell {
+
+    var selectedRow = Int()
+
     @IBOutlet private(set) weak var circleOfSeperator: UIView!
 
     @IBOutlet weak var journeyImageView: UIImageView!

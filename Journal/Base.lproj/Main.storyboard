@@ -55,7 +55,7 @@
                                                             <color key="tintColor" red="0.92941176470588238" green="0.37647058823529411" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                                             <state key="normal" title="Button" image="icon_plus"/>
                                                             <connections>
-                                                                <segue destination="Rkm-LU-HGu" kind="show" id="FeP-wT-NSm"/>
+                                                                <segue destination="Rkm-LU-HGu" kind="show" identifier="" id="FeP-wT-NSm"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -124,6 +124,7 @@
                                                     <outlet property="circleOfSeperator" destination="J59-Em-RIM" id="Ye9-GZ-U73"/>
                                                     <outlet property="journeyImageView" destination="f3a-8J-bTs" id="eUe-01-4eQ"/>
                                                     <outlet property="journeyTitleLabel" destination="i8s-cl-PmZ" id="Mca-xI-2RH"/>
+                                                    <segue destination="Rkm-LU-HGu" kind="show" identifier="showEditJournalVC" id="Sjk-W7-biz"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -275,4 +276,7 @@
         <image name="icon_photo" width="44" height="44"/>
         <image name="icon_plus" width="44" height="44"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Sjk-W7-biz"/>
+    </inferredMetricsTieBreakers>
 </document>

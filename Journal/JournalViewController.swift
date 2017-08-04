@@ -16,6 +16,8 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var journal: [Journal] = []
 
+    var selectedRow = Int()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +28,20 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
 
         fetchJournal()
+
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "showEditJournalVC" {
+
+            // swiftlint:disable force_cast
+            let destinationVC = segue.destination as! EditJournalViewController
+            // swiftlint:enable force_cast
+
+            destinationVC.selectedRow = selectedRow
+
+        }
 
     }
 
@@ -81,9 +97,8 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
                 // swiftlint:disable force_cast
                 let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath) as! ContentTableViewCell
 
-                guard let photoData = journal[indexPath.row].photo as? Data
+                let photoData = journal[indexPath.row].photo as! Data
 
-                    else { return cell }
                 // swiftlint:enable force_cast
 
                 cell.journeyTitleLabel.text = journal[indexPath.row].title
@@ -120,6 +135,14 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("delete")
 
         }
+
+    }
+
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+
+        selectedRow = indexPath.row
+
+        return indexPath
 
     }
 
