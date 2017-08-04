@@ -220,27 +220,26 @@
                                 </constraints>
                                 <state key="normal" image="button_close"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQ0-Zv-KDh">
-                                <rect key="frame" x="46" y="206" width="282" height="30"/>
-                                <state key="normal" title="Please click here to upload photo">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a photo with your journey!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqM-vm-16I">
+                                <rect key="frame" x="30" y="219" width="315" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Rcd-u8-Sd5" firstAttribute="top" secondItem="VqV-fg-BHZ" secondAttribute="bottom" constant="10" id="06o-cw-jSc"/>
                             <constraint firstItem="Rcd-u8-Sd5" firstAttribute="leading" secondItem="6Jn-xn-Trg" secondAttribute="leading" constant="22" id="1a7-hI-1r6"/>
-                            <constraint firstItem="dQ0-Zv-KDh" firstAttribute="leading" secondItem="6Jn-xn-Trg" secondAttribute="leadingMargin" constant="30" id="4rT-8c-gkm"/>
+                            <constraint firstItem="kqM-vm-16I" firstAttribute="bottom" secondItem="VqV-fg-BHZ" secondAttribute="bottom" constant="-139" id="93w-Ut-VbV"/>
                             <constraint firstItem="Wtr-E4-E3R" firstAttribute="top" secondItem="Rcd-u8-Sd5" secondAttribute="bottom" constant="10" id="AjH-z7-k1k"/>
                             <constraint firstItem="VqV-fg-BHZ" firstAttribute="leading" secondItem="6Jn-xn-Trg" secondAttribute="leading" id="AoR-qx-LMU"/>
                             <constraint firstItem="rXu-4i-71S" firstAttribute="top" secondItem="I7Q-Pt-ApB" secondAttribute="bottom" constant="8" id="D3b-ET-Hy4"/>
                             <constraint firstItem="7cv-e4-lOA" firstAttribute="leading" secondItem="Rcd-u8-Sd5" secondAttribute="leading" id="Doa-xN-ETh"/>
                             <constraint firstAttribute="trailing" secondItem="VqV-fg-BHZ" secondAttribute="trailing" id="Ftb-9s-QCY"/>
-                            <constraint firstItem="dQ0-Zv-KDh" firstAttribute="centerX" secondItem="6Jn-xn-Trg" secondAttribute="centerX" id="HCI-15-8nP"/>
                             <constraint firstItem="I7Q-Pt-ApB" firstAttribute="top" secondItem="7cv-e4-lOA" secondAttribute="bottom" constant="12" id="HCM-1s-Uju"/>
                             <constraint firstItem="VqV-fg-BHZ" firstAttribute="top" secondItem="6Jn-xn-Trg" secondAttribute="top" id="JLQ-Gd-5bv"/>
-                            <constraint firstItem="dQ0-Zv-KDh" firstAttribute="bottom" secondItem="VqV-fg-BHZ" secondAttribute="bottom" constant="-139" id="T5W-7J-f6s"/>
+                            <constraint firstItem="kqM-vm-16I" firstAttribute="leading" secondItem="6Jn-xn-Trg" secondAttribute="leading" constant="30" id="Sxc-zu-lGc"/>
                             <constraint firstItem="7cv-e4-lOA" firstAttribute="trailing" secondItem="Rcd-u8-Sd5" secondAttribute="trailing" id="XUF-YT-d7l"/>
                             <constraint firstItem="Wtr-E4-E3R" firstAttribute="centerX" secondItem="6Jn-xn-Trg" secondAttribute="centerX" id="YJi-84-GgC"/>
                             <constraint firstItem="I7Q-Pt-ApB" firstAttribute="leading" secondItem="6Jn-xn-Trg" secondAttribute="leadingMargin" constant="108" id="b9a-4d-oti"/>
@@ -250,14 +249,15 @@
                             <constraint firstItem="X2V-C4-X5L" firstAttribute="leading" secondItem="6Jn-xn-Trg" secondAttribute="leading" constant="20" id="hJF-tU-L1j"/>
                             <constraint firstItem="X2V-C4-X5L" firstAttribute="top" secondItem="QRB-pR-kJ8" secondAttribute="bottom" constant="11.5" id="jyt-nx-dYO"/>
                             <constraint firstItem="Wtr-E4-E3R" firstAttribute="trailing" secondItem="Rcd-u8-Sd5" secondAttribute="trailing" id="s5I-2Y-yNK"/>
+                            <constraint firstItem="kqM-vm-16I" firstAttribute="centerX" secondItem="6Jn-xn-Trg" secondAttribute="centerX" id="uR3-bi-f0I"/>
                             <constraint firstItem="7cv-e4-lOA" firstAttribute="top" secondItem="Wtr-E4-E3R" secondAttribute="bottom" constant="9.5" id="uZm-4c-WWH"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="crossButton" destination="X2V-C4-X5L" id="R7e-fp-0O5"/>
-                        <outlet property="editJourneyView" destination="6Jn-xn-Trg" id="Eu9-Z1-rMl"/>
                         <outlet property="journeyContentTextView" destination="7cv-e4-lOA" id="vhe-bn-4SE"/>
+                        <outlet property="journeyImageReminderLabel" destination="kqM-vm-16I" id="cyb-7z-SFf"/>
                         <outlet property="journeyImageView" destination="VqV-fg-BHZ" id="k7I-7u-b2f"/>
                         <outlet property="journeyTitleTextField" destination="Rcd-u8-Sd5" id="pqC-G4-6up"/>
                         <outlet property="saveButton" destination="I7Q-Pt-ApB" id="gyj-KU-LRr"/>

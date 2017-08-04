@@ -8,9 +8,7 @@
 
 import UIKit
 
-class EditJourneyViewController: UIViewController {
-
-    @IBOutlet var editJourneyView: UIView!
+class EditJourneyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet private(set) weak var crossButton: UIButton!
 
@@ -22,12 +20,18 @@ class EditJourneyViewController: UIViewController {
 
     @IBOutlet private(set) weak var saveButton: UIButton!
 
+    @IBOutlet private(set) weak var journeyImageReminderLabel: UILabel!
+
+    let imagePicker = UIImagePickerController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpSaveButton()
 
         setUpCrossButton()
+
+        setUpJourneyImageView()
 
     }
 
@@ -62,15 +66,55 @@ class EditJourneyViewController: UIViewController {
 
     }
 
-    private func setUpImageView() {
-
-        let imageView = journeyImageView!
-
-    }
-
     override var preferredStatusBarStyle: UIStatusBarStyle {
 
         return .lightContent
 
     }
+
+    private func setUpJourneyImageView() {
+
+        let imageView = journeyImageView!
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapJournryImageView(sender: )))
+
+        tapRecognizer.delegate = self
+
+        imageView.addGestureRecognizer(tapRecognizer)
+
+        imageView.isUserInteractionEnabled = true
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+        self.dismiss(animated: true) { () -> Void in
+
+            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+
+                self.journeyImageView.image = image
+
+                self.journeyImageView.contentMode = .scaleAspectFill
+
+                self.journeyImageReminderLabel.isHidden = true
+
+            } else {
+
+                print("Something went wrong")
+
+            }
+
+        }
+
+    }
+
+    func handleTapJournryImageView(sender: UITapGestureRecognizer) {
+
+        imagePicker.delegate = self
+
+        imagePicker.sourceType = .photoLibrary
+
+        self.present(imagePicker, animated: true)
+
+    }
+
 }
