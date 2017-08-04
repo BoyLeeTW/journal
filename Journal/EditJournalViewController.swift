@@ -168,7 +168,7 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
 
         if selectedRow == -1 {
 
-            if  title != "" || photoData != originPhotoData || content != "" {
+            if  title != "" || photoData != originPhotoData || content != "Type your journal here!" {
 
                 let leavingAlert = UIAlertController(title: "Leaving?", message: "there's unsaved journal", preferredStyle: .alert)
 
