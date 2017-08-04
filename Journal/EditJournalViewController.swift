@@ -111,8 +111,15 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
                 return
         }
 
-        journalManager.addJournal(title: title, content: content, photo: photoData)
+        if selectedRow < 0 {
 
+            journalManager.addJournal(title: title, content: content, photo: photoData)
+
+        } else {
+
+            journalManager.updateJournal(indexPath: selectedRow, title: title, content: content, photo: photoData)
+
+        }
         self.dismiss(animated: true, completion: nil)
 
     }

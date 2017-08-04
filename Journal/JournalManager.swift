@@ -59,4 +59,22 @@ class JournalManager {
 
     }
 
+    func updateJournal(indexPath: Int, title: String?, content: String?, photo: Data?) {
+
+        let journals = fetchData()
+
+        if let journalTitle = title {
+            journals[indexPath].title = journalTitle
+        }
+        if let journalContent = content {
+            journals[indexPath].content = journalContent
+        }
+        if let journalPhoto = photo {
+            journals[indexPath].photo = journalPhoto as NSData
+        }
+
+        appDelegate.saveContext()
+
+    }
+
 }
