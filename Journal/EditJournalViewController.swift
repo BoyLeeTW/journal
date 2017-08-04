@@ -28,6 +28,12 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
 
     let journalManager = JournalManager()
 
+    var originPhotoData = Data()
+
+    var originTitle = String()
+
+    var originContent = String()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,6 +73,11 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
 
             journeyImageReminderLabel.isHidden = true
 
+            originTitle = journeyTitleTextField.text!
+
+            originContent = journeyContentTextView.text!
+
+            originPhotoData = photoData
         }
 
     }
@@ -107,11 +118,19 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
         let photo = journeyImageView.image,
         let photoData = UIImagePNGRepresentation(photo)
 
-            else {
-                return
+        else {
+            return
         }
 
-//        if title == "" || photoData ==
+        if title == "" || photoData == UIImagePNGRepresentation(#imageLiteral(resourceName: "icon_photo")) {
+
+            let noContentAlert = UIAlertController(title: "Sorry", message: "There's nothing new on your journal", preferredStyle: .alert)
+
+            noContentAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+            self.present(noContentAlert, animated: true)
+
+        } else {
 
         if selectedRow < 0 {
 
@@ -121,10 +140,10 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
 
             journalManager.updateJournal(indexPath: selectedRow, title: title, content: content, photo: photoData)
 
+            }
+
+            self.dismiss(animated: true, completion: nil)
         }
-
-        self.dismiss(animated: true, completion: nil)
-
     }
 
     private func setUpCrossButton() {
@@ -137,7 +156,61 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
 
     func handleTouchCrossButton() {
 
-        self.dismiss(animated: true, completion: nil)
+        guard
+            let title = journeyTitleTextField.text,
+            let content = journeyContentTextView.text,
+            let photo = journeyImageView.image,
+            let photoData = UIImagePNGRepresentation(photo)
+
+            else {
+                return
+        }
+
+        if selectedRow == -1 {
+
+            if  title != "" || photoData != originPhotoData || content != "" {
+
+                let leavingAlert = UIAlertController(title: "Leaving?", message: "there's unsaved journal", preferredStyle: .alert)
+
+                leavingAlert.addAction(UIAlertAction(title: "Give up this journal", style: .default, handler: { _ in
+
+                    self.dismiss(animated: true, completion: nil)
+
+                }))
+
+                leavingAlert.addAction(UIAlertAction(title: "Back to write", style: .cancel, handler: nil))
+
+                self.present(leavingAlert, animated: true)
+
+            } else {
+
+                self.dismiss(animated: true, completion: nil)
+
+            }
+
+        } else {
+
+            if  title != originTitle || photoData != originPhotoData || content != originContent {
+
+                let leavingAlert = UIAlertController(title: "Leaving?", message: "there's unsaved change", preferredStyle: .alert)
+
+                leavingAlert.addAction(UIAlertAction(title: "Give up", style: .default, handler: { _ in
+
+                    self.dismiss(animated: true, completion: nil)
+
+                }))
+
+                leavingAlert.addAction(UIAlertAction(title: "Back", style: .cancel, handler: nil))
+
+                self.present(leavingAlert, animated: true)
+
+            } else {
+
+                self.dismiss(animated: true, completion: nil)
+
+            }
+
+        }
 
     }
 
