@@ -124,7 +124,7 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
 
         if title == "" || photoData == UIImagePNGRepresentation(#imageLiteral(resourceName: "icon_photo")) {
 
-            let noContentAlert = UIAlertController(title: "Sorry", message: "There's nothing new on your journal", preferredStyle: .alert)
+            let noContentAlert = UIAlertController(title: "Sorry", message: "Please fill all journal information!", preferredStyle: .alert)
 
             noContentAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 
