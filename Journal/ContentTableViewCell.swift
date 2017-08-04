@@ -15,9 +15,11 @@ class ContentTableViewCell: UITableViewCell {
 
     @IBOutlet private(set) weak var circleOfSeperator: UIView!
 
-    @IBOutlet weak var journeyImageView: UIImageView!
+    @IBOutlet private(set) weak var journeyImageView: UIImageView!
 
-    @IBOutlet weak var journeyTitleLabel: UILabel!
+    @IBOutlet private(set) weak var journeyTitleLabel: UILabel!
+
+    @IBOutlet private(set) weak var shadowView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +27,8 @@ class ContentTableViewCell: UITableViewCell {
         setUpCircleOfSeperator()
 
         setUpJourneyImage()
+
+        setUpShadowView()
 
     }
 
@@ -42,23 +46,32 @@ class ContentTableViewCell: UITableViewCell {
 
     }
 
+    private func setUpShadowView() {
+
+        let view = shadowView!
+
+        view.layer.backgroundColor = UIColor.white.cgColor
+
+        view.layer.shadowColor = UIColor.black.cgColor
+
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+
+        view.layer.shadowRadius = 4
+
+        view.layer.shadowOpacity = 0.3
+
+        view.layer.cornerRadius = 8
+
+    }
+
     private func setUpJourneyImage() {
 
         let imageView = journeyImageView!
 
-        imageView.backgroundColor = UIColor.clear
-
-        imageView.layer.shadowColor = UIColor.black.cgColor
-
-        imageView.layer.shadowOffset = CGSize(width: -1, height: -0.5)
-
-        imageView.layer.shadowRadius = 1.5
-
-        imageView.layer.shadowOpacity = 0.3
+        imageView.contentMode = .scaleAspectFill
 
         imageView.layer.cornerRadius = 8
 
-        imageView.contentMode = .scaleAspectFill
     }
 
 }

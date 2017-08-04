@@ -96,6 +96,10 @@
                                                                 <constraint firstAttribute="width" secondItem="J59-Em-RIM" secondAttribute="height" multiplier="8:8" id="06f-xE-TWl"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVj-Ml-Pwe">
+                                                            <rect key="frame" x="20" y="10" width="335" height="140"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_photo" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-8J-bTs">
                                                             <rect key="frame" x="20" y="10" width="335" height="140"/>
                                                             <constraints>
@@ -112,9 +116,13 @@
                                                         <constraint firstItem="0jf-aa-lgs" firstAttribute="top" secondItem="f3a-8J-bTs" secondAttribute="bottom" constant="51.799999999999997" id="AM3-HW-ClI"/>
                                                         <constraint firstItem="0jf-aa-lgs" firstAttribute="top" secondItem="i8s-cl-PmZ" secondAttribute="bottom" constant="19.800000000000001" id="FYV-tt-bgs"/>
                                                         <constraint firstItem="J59-Em-RIM" firstAttribute="centerX" secondItem="0jf-aa-lgs" secondAttribute="centerX" id="GUr-IF-qPB"/>
+                                                        <constraint firstItem="mVj-Ml-Pwe" firstAttribute="centerX" secondItem="f3a-8J-bTs" secondAttribute="centerX" id="KVb-ee-kbq"/>
                                                         <constraint firstItem="f3a-8J-bTs" firstAttribute="leading" secondItem="X1i-Lx-fEY" secondAttribute="leading" constant="20" id="S0G-vj-LIg"/>
                                                         <constraint firstItem="i8s-cl-PmZ" firstAttribute="top" secondItem="f3a-8J-bTs" secondAttribute="bottom" constant="16" id="SjE-qV-87K"/>
+                                                        <constraint firstItem="mVj-Ml-Pwe" firstAttribute="width" secondItem="f3a-8J-bTs" secondAttribute="width" id="XLi-a1-xu6"/>
                                                         <constraint firstItem="f3a-8J-bTs" firstAttribute="top" secondItem="X1i-Lx-fEY" secondAttribute="top" constant="10" id="XMY-vH-7ri"/>
+                                                        <constraint firstItem="mVj-Ml-Pwe" firstAttribute="height" secondItem="f3a-8J-bTs" secondAttribute="height" id="fPB-Wn-hBG"/>
+                                                        <constraint firstItem="mVj-Ml-Pwe" firstAttribute="centerY" secondItem="f3a-8J-bTs" secondAttribute="centerY" id="iZH-CV-UYa"/>
                                                         <constraint firstItem="J59-Em-RIM" firstAttribute="centerY" secondItem="0jf-aa-lgs" secondAttribute="centerY" id="mGN-HG-2LZ"/>
                                                         <constraint firstItem="J59-Em-RIM" firstAttribute="top" secondItem="i8s-cl-PmZ" secondAttribute="bottom" constant="16" id="ohh-rs-f62"/>
                                                         <constraint firstItem="f3a-8J-bTs" firstAttribute="centerX" secondItem="X1i-Lx-fEY" secondAttribute="centerX" id="pZW-qh-Rck"/>
@@ -124,6 +132,7 @@
                                                     <outlet property="circleOfSeperator" destination="J59-Em-RIM" id="Ye9-GZ-U73"/>
                                                     <outlet property="journeyImageView" destination="f3a-8J-bTs" id="eUe-01-4eQ"/>
                                                     <outlet property="journeyTitleLabel" destination="i8s-cl-PmZ" id="Mca-xI-2RH"/>
+                                                    <outlet property="shadowView" destination="mVj-Ml-Pwe" id="eYY-cp-q3M"/>
                                                     <segue destination="Rkm-LU-HGu" kind="show" identifier="showEditJournalVC" id="Sjk-W7-biz"/>
                                                 </connections>
                                             </tableViewCell>
