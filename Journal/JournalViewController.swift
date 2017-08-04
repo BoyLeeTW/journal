@@ -98,7 +98,6 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath) as! ContentTableViewCell
 
                 let photoData = journal[indexPath.row].photo as! Data
-
                 // swiftlint:enable force_cast
 
                 cell.journeyTitleLabel.text = journal[indexPath.row].title

@@ -142,7 +142,7 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
 
         let imageView = journeyImageView!
 
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapJournryImageView(sender: )))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapJourneyImageView(sender: )))
 
         tapRecognizer.delegate = self
 
@@ -173,7 +173,52 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
 
     }
 
-    func handleTapJournryImageView(sender: UITapGestureRecognizer) {
+    func handleTapJourneyImageView(sender: UITapGestureRecognizer) {
+
+        let photoAlert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+
+        photoAlert.addAction(UIAlertAction(title: "Take a photo now", style: .default, handler: { _ in
+
+            self.openCamera()
+
+        }))
+
+        photoAlert.addAction(UIAlertAction(title: "Choose from album", style: .default, handler: { _ in
+
+            self.openAlbum()
+
+        }))
+
+        photoAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        self.present(photoAlert, animated: true)
+
+    }
+
+    func openCamera() {
+
+        let isCameraExist = UIImagePickerController.isSourceTypeAvailable(.camera)
+
+        if isCameraExist {
+
+            imagePicker.delegate = self
+
+            imagePicker.sourceType = .camera
+
+            self.present(imagePicker, animated: true)
+
+        } else {
+
+            let noCaremaAlert = UIAlertController(title: "Sorry", message: "You don't have camera lol", preferredStyle: .alert)
+
+            noCaremaAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+            self.present(noCaremaAlert, animated: true)
+        }
+
+    }
+
+    func openAlbum() {
 
         imagePicker.delegate = self
 
