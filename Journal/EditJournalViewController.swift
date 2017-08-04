@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditJourneyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class EditJournalViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet private(set) weak var crossButton: UIButton!
 

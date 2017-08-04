@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ContentTableViewCell: UITableViewCell {
     @IBOutlet private(set) weak var circleOfSeperator: UIView!
