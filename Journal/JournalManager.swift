@@ -37,13 +37,23 @@ class JournalManager {
         return journals
     }
 
-    func addJournal(title: String, content: String, photo: NSData) {
+    func addJournal(title: String, content: String, photo: Data) {
 
         let newJournal = Journal(context: context)
 
         newJournal.title = title
         newJournal.content = content
-        newJournal.photo = photo
+        newJournal.photo = photo as NSData
+
+        appDelegate.saveContext()
+
+    }
+
+    func deleteJournal(indexPath: Int) {
+
+        let journals = fetchData()
+
+        context.delete(journals[indexPath])
 
         appDelegate.saveContext()
 

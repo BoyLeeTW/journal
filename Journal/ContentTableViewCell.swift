@@ -12,9 +12,9 @@ import CoreData
 class ContentTableViewCell: UITableViewCell {
     @IBOutlet private(set) weak var circleOfSeperator: UIView!
 
-    @IBOutlet private(set) weak var journeyImageView: UIImageView!
+    @IBOutlet weak var journeyImageView: UIImageView!
 
-    @IBOutlet private(set) weak var journeyTitleLabel: UILabel!
+    @IBOutlet weak var journeyTitleLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +43,7 @@ class ContentTableViewCell: UITableViewCell {
 
         let imageView = journeyImageView!
 
-        imageView.backgroundColor = UIColor.white
+        imageView.backgroundColor = UIColor.clear
 
         imageView.layer.shadowColor = UIColor.black.cgColor
 
@@ -54,12 +54,8 @@ class ContentTableViewCell: UITableViewCell {
         imageView.layer.shadowOpacity = 0.3
 
         imageView.layer.cornerRadius = 8
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        imageView.contentMode = .scaleAspectFill
     }
 
 }

@@ -19,6 +19,14 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        fetchJournal()
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+
+        fetchJournal()
+
     }
 
     func fetchJournal() {
@@ -70,8 +78,18 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
 
             default:
 
-                let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath)
-                
+                // swiftlint:disable force_cast
+                let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath) as! ContentTableViewCell
+
+                guard let photoData = journal[indexPath.row].photo as? Data
+
+                    else { return cell }
+                // swiftlint:enable force_cast
+
+                cell.journeyTitleLabel.text = journal[indexPath.row].title
+
+                cell.journeyImageView.image = UIImage(data: photoData)
+
                 return cell
 
             }
@@ -94,6 +112,10 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 
         if editingStyle == .delete {
+
+            journalManager.deleteJournal(indexPath: indexPath.row)
+
+            fetchJournal()
 
             print("delete")
 

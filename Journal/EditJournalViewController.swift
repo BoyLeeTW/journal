@@ -24,6 +24,8 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
 
     let imagePicker = UIImagePickerController()
 
+    let journalManager = JournalManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +34,12 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
         setUpCrossButton()
 
         setUpJourneyImageView()
+
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+
+        return .lightContent
 
     }
 
@@ -49,7 +57,25 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
 
         button.layer.shadowRadius = 5
 
-//        button.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControlEvents#>)
+        button.addTarget(self, action: #selector(handleSaveButton), for: .touchUpInside)
+    }
+
+    func handleSaveButton() {
+
+        guard
+        let title = journeyTitleTextField.text,
+        let content = journeyContentTextView.text,
+        let photo = journeyImageView.image,
+        let photoData = UIImagePNGRepresentation(photo)
+
+            else {
+                return
+        }
+
+        journalManager.addJournal(title: title, content: content, photo: photoData)
+
+        self.dismiss(animated: true, completion: nil)
+
     }
 
     private func setUpCrossButton() {
@@ -63,12 +89,6 @@ class EditJournalViewController: UIViewController, UIImagePickerControllerDelega
     func handleTouchCrossButton() {
 
         self.dismiss(animated: true, completion: nil)
-
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-
-        return .lightContent
 
     }
 
