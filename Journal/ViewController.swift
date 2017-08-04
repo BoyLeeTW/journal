@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var journeyListTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,43 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        switch section {
+
+        case 0:
+
+            return 1
+
+        default :
+
+            return 0
+
+        }
+
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
+        UITableViewCell {
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+
+            self.journeyListTableView.estimatedRowHeight = 200.00
+
+            self.journeyListTableView.rowHeight = UITableViewAutomaticDimension
+
+            switch indexPath.section {
+
+            case 0:
+
+                return cell
+
+            default:
+
+                return cell
+
+            }
+
+    }
 
 }
-
