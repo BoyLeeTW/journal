@@ -21,6 +21,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 2
+
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         switch section {
@@ -31,7 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         default :
 
-            return 0
+            return 1
 
         }
 
@@ -39,8 +45,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
         UITableViewCell {
-
-            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
 
             self.journeyListTableView.estimatedRowHeight = 200.00
 
@@ -50,9 +54,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
             case 0:
 
+                let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+
                 return cell
 
             default:
+
+                let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath)
 
                 return cell
 

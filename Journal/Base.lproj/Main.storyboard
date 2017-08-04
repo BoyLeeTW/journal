@@ -66,26 +66,60 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contentCell" rowHeight="212" id="yhO-Dv-LHS" customClass="TitleTableViewCell" customModule="Journal" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contentCell" rowHeight="212" id="yhO-Dv-LHS" customClass="ContentTableViewCell" customModule="Journal" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="98" width="375" height="212"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yhO-Dv-LHS" id="X1i-Lx-fEY">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-8J-bTs">
-                                                            <rect key="frame" x="25" y="8" width="318" height="142"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8s-cl-PmZ">
-                                                            <rect key="frame" x="43" y="175" width="42" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8s-cl-PmZ">
+                                                            <rect key="frame" x="38" y="166" width="35.5" height="8"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.2627450980392157" green="0.3411764705882353" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0jf-aa-lgs" userLabel="Seperator">
+                                                            <rect key="frame" x="38" y="194" width="299" height="1"/>
+                                                            <color key="backgroundColor" red="0.6705882352941176" green="0.70196078431372544" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="0.5" id="b7m-Ah-ARY"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J59-Em-RIM" userLabel="Circle">
+                                                            <rect key="frame" x="182.5" y="190" width="10" height="10"/>
+                                                            <color key="backgroundColor" red="0.20784313730000001" green="0.72156862749999995" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="J59-Em-RIM" secondAttribute="height" multiplier="8:8" id="06f-xE-TWl"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_photo" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-8J-bTs">
+                                                            <rect key="frame" x="20" y="10" width="335" height="140"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="f3a-8J-bTs" secondAttribute="height" multiplier="335:140" id="6lc-aC-69o"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="i8s-cl-PmZ" firstAttribute="leading" secondItem="X1i-Lx-fEY" secondAttribute="leadingMargin" constant="30" id="1ET-TO-2f1"/>
+                                                        <constraint firstItem="0jf-aa-lgs" firstAttribute="centerX" secondItem="X1i-Lx-fEY" secondAttribute="centerX" id="4DO-Ew-nid"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="0jf-aa-lgs" secondAttribute="bottom" constant="9.8000000000000007" id="5De-RM-vi8"/>
+                                                        <constraint firstItem="0jf-aa-lgs" firstAttribute="leading" secondItem="X1i-Lx-fEY" secondAttribute="leadingMargin" constant="30" id="8rZ-Ny-xuM"/>
+                                                        <constraint firstItem="0jf-aa-lgs" firstAttribute="top" secondItem="i8s-cl-PmZ" secondAttribute="bottom" constant="19.800000000000001" id="FYV-tt-bgs"/>
+                                                        <constraint firstItem="J59-Em-RIM" firstAttribute="centerX" secondItem="0jf-aa-lgs" secondAttribute="centerX" id="GUr-IF-qPB"/>
+                                                        <constraint firstItem="f3a-8J-bTs" firstAttribute="leading" secondItem="X1i-Lx-fEY" secondAttribute="leading" constant="20" id="S0G-vj-LIg"/>
+                                                        <constraint firstItem="i8s-cl-PmZ" firstAttribute="top" secondItem="f3a-8J-bTs" secondAttribute="bottom" constant="16" id="SjE-qV-87K"/>
+                                                        <constraint firstItem="f3a-8J-bTs" firstAttribute="top" secondItem="X1i-Lx-fEY" secondAttribute="top" constant="10" id="XMY-vH-7ri"/>
+                                                        <constraint firstItem="J59-Em-RIM" firstAttribute="centerY" secondItem="0jf-aa-lgs" secondAttribute="centerY" id="mGN-HG-2LZ"/>
+                                                        <constraint firstItem="J59-Em-RIM" firstAttribute="top" secondItem="i8s-cl-PmZ" secondAttribute="bottom" constant="16" id="ohh-rs-f62"/>
+                                                        <constraint firstItem="f3a-8J-bTs" firstAttribute="centerX" secondItem="X1i-Lx-fEY" secondAttribute="centerX" id="pZW-qh-Rck"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="circleOfSeperator" destination="J59-Em-RIM" id="Ye9-GZ-U73"/>
+                                                    <outlet property="journeyImageView" destination="f3a-8J-bTs" id="eUe-01-4eQ"/>
+                                                    <outlet property="journeyTitleLabel" destination="i8s-cl-PmZ" id="Mca-xI-2RH"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -123,6 +157,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_photo" width="44" height="44"/>
         <image name="icon_plus" width="44" height="44"/>
     </resources>
 </document>
